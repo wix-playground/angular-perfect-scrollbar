@@ -1,3 +1,5 @@
+"use strict";
+
 angular.module('perfect_scrollbar', []).directive('perfectScrollbar',
   ['$parse', '$window', function($parse, $window) {
   var psOptions = [
@@ -31,10 +33,6 @@ angular.module('perfect_scrollbar', []).directive('perfectScrollbar',
           $elem.perfectScrollbar('update');
         });
 
-        // This is necessary if you aren't watching anything for refreshes
-        if(!$scope.$$phase) {
-          $scope.$apply();
-        }
       }
 
       // This is necessary when you don't watch anything with the scrollbar
@@ -49,7 +47,7 @@ angular.module('perfect_scrollbar', []).directive('perfectScrollbar',
 
       // this is from a pull request - I am not totally sure what the original issue is but seems harmless
       if ($attr.refreshOnResize) {
-        jqWindow.on('resize', update);
+        jqWindow.on('resize', _.debounce(update, 100, { trailing: true }));
       }
 
       $elem.bind('$destroy', function() {

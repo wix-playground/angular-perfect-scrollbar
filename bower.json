@@ -10,7 +10,8 @@
   ],
   "dependencies": {
     "perfect-scrollbar": "~0.4.11",
-    "angular": "*"
+    "angular": "*",
+    "lodash": "~2.4.1"
   },
   "authors": [
     "Drew Miller"
