@@ -9,7 +9,7 @@
     "scrollbar"
   ],
   "dependencies": {
-    "perfect-scrollbar": "~0.4.11",
+    "perfect-scrollbar": "~0.5.2",
     "angular": "*",
     "lodash": "~2.4.1"
   },
