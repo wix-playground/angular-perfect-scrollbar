@@ -35,6 +35,10 @@ angular.module('perfect_scrollbar', []).directive('perfectScrollbar',
 
       }
 
+      $scope.$on('perfectScrollbar.update', function(){
+        update();
+      });
+
       // This is necessary when you don't watch anything with the scrollbar
       $elem.bind('mouseenter', update);
 
